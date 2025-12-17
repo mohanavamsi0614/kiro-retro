@@ -1,0 +1,262 @@
+/* Retro Revival Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Press Start 2P', monospace;
+    background: linear-gradient(45deg, #0f0f23, #1a1a2e, #16213e);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    color: #00ff41;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Styling */
+.retro-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.neon-text {
+    font-size: 2.5rem;
+    color: #00ff41;
+    text-shadow: 
+        0 0 5px #00ff41,
+        0 0 10px #00ff41,
+        0 0 15px #00ff41,
+        0 0 20px #00ff41;
+    animation: neonFlicker 2s infinite alternate;
+    margin-bottom: 10px;
+}
+
+@keyframes neonFlicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+.subtitle {
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 10px;
+}
+
+/* Game Area Layout */
+.game-area {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.game-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 250px;
+}
+
+/* Score Panel */
+.score-panel {
+    background: rgba(0, 255, 65, 0.1);
+    border: 2px solid #00ff41;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+}
+
+.score-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 0.7rem;
+}
+
+.score-item:last-child {
+    margin-bottom: 0;
+}
+
+.label {
+    color: #888;
+}
+
+.value {
+    color: #00ff41;
+    text-shadow: 0 0 5px #00ff41;
+}
+
+/* AI Panel */
+.ai-panel {
+    background: rgba(255, 0, 255, 0.1);
+    border: 2px solid #ff00ff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.3);
+}
+
+.ai-panel h3 {
+    color: #ff00ff;
+    font-size: 0.8rem;
+    margin-bottom: 15px;
+    text-align: center;
+    text-shadow: 0 0 5px #ff00ff;
+}
+
+.ai-toggle {
+    margin-bottom: 12px;
+    font-size: 0.6rem;
+}
+
+.ai-toggle:last-child {
+    margin-bottom: 0;
+}
+
+.ai-toggle label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: #ccc;
+    transition: color 0.3s;
+}
+
+.ai-toggle label:hover {
+    color: #ff00ff;
+}
+
+.ai-toggle input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.2);
+    accent-color: #ff00ff;
+}
+
+/* Game Container */
+.game-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+#gameCanvas {
+    border: 3px solid #00ff41;
+    border-radius: 10px;
+    background: #000;
+    box-shadow: 
+        0 0 30px rgba(0, 255, 65, 0.5),
+        inset 0 0 30px rgba(0, 255, 65, 0.1);
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+}
+
+/* Game Overlay */
+.game-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.game-overlay.hidden {
+    display: none;
+}
+
+.overlay-content {
+    text-align: center;
+    color: #00ff41;
+}
+
+.overlay-content h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #00ff41;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.overlay-content p {
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+}
+
+.controls-hint {
+    margin-top: 30px;
+    color: #888;
+    font-size: 0.6rem;
+}
+
+.controls-hint p {
+    margin-bottom: 5px;
+}
+
+/* Footer */
+.retro-footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 0.6rem;
+    color: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .game-area {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .game-info {
+        flex-direction: row;
+        min-width: auto;
+        width: 100%;
+        max-width: 600px;
+    }
+    
+    .score-panel,
+    .ai-panel {
+        flex: 1;
+    }
+    
+    #gameCanvas {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+    }
+    
+    .neon-text {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .game-info {
+        flex-direction: column;
+    }
+    
+    .neon-text {
+        font-size: 1.4rem;
+    }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "AI Snake Revival",
+  "description": "Classic Snake game with modern AI enhancements and retro styling",
+  "version": "1.0.0",
+  "type": "web-game",
+  "technologies": ["JavaScript", "HTML5 Canvas", "CSS3", "AI"],
+  "features": [
+    "Smart Food Placement AI",
+    "Ghost Snake AI Opponent", 
+    "Adaptive Difficulty System",
+    "Retro Pixel Art Styling",
+    "Neon Visual Effects",
+    "Responsive Design"
+  ],
+  "aiEnhancements": {
+    "smartFoodPlacement": "AI analyzes snake position and generates strategic food placement",
+    "ghostSnakeAI": "AI-controlled opponent snake that competes for food",
+    "adaptiveDifficulty": "Dynamic speed adjustment based on player performance"
+  }
+}
